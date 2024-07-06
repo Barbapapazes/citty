@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.10
+
+[compare changes](https://github.com/unjs/citty/compare/v0.1.9...v0.1.10)
+
+### 🚀 Enhancements
+
+- Use jiti ([308c351](https://github.com/unjs/citty/commit/308c351))
+
+### ❤️ Contributors
+
+- Barbapapazes <e.soubiran25@gmail.com>
+
 ## v0.1.9
 
 [compare changes](https://github.com/unjs/citty/compare/v0.1.8...v0.1.9)
