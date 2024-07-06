@@ -1,4 +1,5 @@
 import { resolve } from "pathe";
+import jiti from "jiti";
 import type {
   CommandContext,
   CommandDef,
@@ -117,11 +118,16 @@ export async function resolveLocalCommands(
 ): Promise<Resolvable<SubCommandsDef>> {
   const localCommands = await scanCommands(dir);
 
+  const _jiti = jiti(import.meta.url, {
+    interopDefault: true,
+    esmResolve: true,
+  });
+
   return Object.fromEntries(
     localCommands.map((command) => {
       const name = removeExtension(removeDirPrefix(command, dir));
 
-      return [name, () => import(resolve(command)).then((r) => r.default)];
+      return [name, () => _jiti(resolve(command))];
     }),
   );
 }

@@ -1,6 +1,7 @@
 import { existsSync } from "node:fs";
 import consola from "consola";
-import type { ArgsDef, CommandDef } from "./types";
+import jiti from "jiti";
+import type { ArgsDef, CittyModule, CommandDef } from "./types";
 import { loadLocalCommands, resolveSubCommand, runCommand } from "./command";
 import { CLIError } from "./_utils";
 import { showUsage as _showUsage } from "./usage";
@@ -23,8 +24,14 @@ export async function runMain<T extends ArgsDef = ArgsDef>(
   const modulesDir = opts.modulesDir ?? "modules";
   if (existsSync(modulesDir)) {
     const modules = await scanModules(modulesDir);
+
+    const _jiti = jiti(import.meta.url, {
+      interopDefault: true,
+      esmResolve: true,
+    });
+
     for (const modulePath of modules) {
-      const module = await import(modulePath).then((mod) => mod.default);
+      const module = _jiti(modulePath) as CittyModule;
       await module.setup(cmd);
     }
   }

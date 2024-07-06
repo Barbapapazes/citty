@@ -107,7 +107,10 @@ export type CommandContext<T extends ArgsDef = ArgsDef> = {
 // ----- Module -----
 
 export interface CittyModule {
-  setup: (this: void, cmd: CommandDef) => void | Promise<void>;
+  setup: <T extends ArgsDef = ArgsDef>(
+    this: void,
+    cmd: CommandDef<T>,
+  ) => void | Promise<void>;
 }
 
 export interface AddCommandOptions {

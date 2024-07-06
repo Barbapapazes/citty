@@ -3,6 +3,7 @@ import {
   AddCommandOptions,
   SubCommandsDef,
   CittyModule,
+  ArgsDef,
 } from "./types";
 
 /**
@@ -15,7 +16,10 @@ export function defineCittyModule(module: CittyModule): CittyModule {
 /**
  * Utility function to add a command from a module.
  */
-export function addCommand(cmd: CommandDef, options: AddCommandOptions) {
+export function addCommand<T extends ArgsDef = ArgsDef>(
+  cmd: CommandDef<T>,
+  options: AddCommandOptions,
+) {
   cmd.subCommands = cmd.subCommands || {};
 
   (cmd.subCommands as SubCommandsDef)[options.name] = () =>
