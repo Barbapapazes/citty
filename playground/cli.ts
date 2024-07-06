@@ -1,3 +1,4 @@
+import { fileURLToPath } from "node:url";
 import { defineCommand, runMain } from "../src";
 
 const main = defineCommand({
@@ -13,10 +14,15 @@ const main = defineCommand({
     console.log("Cleanup");
   },
   subCommands: {
-    build: () => import("./commands/build").then((r) => r.default),
-    deploy: () => import("./commands/deploy").then((r) => r.default),
-    debug: () => import("./commands/debug").then((r) => r.default),
+    build: () => import("./cli/build").then((r) => r.default),
+    deploy: () => import("./cli/deploy").then((r) => r.default),
+    debug: () => import("./cli/debug").then((r) => r.default),
   },
 });
 
-runMain(main);
+const resolve = (path: string) => fileURLToPath(new URL(path, import.meta.url));
+
+runMain(main, {
+  commandsDir: resolve("./commands"),
+  modulesDir: resolve("./modules"),
+});

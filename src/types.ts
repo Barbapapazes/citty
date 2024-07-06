@@ -104,6 +104,17 @@ export type CommandContext<T extends ArgsDef = ArgsDef> = {
   data?: any;
 };
 
+// ----- Module -----
+
+export interface CittyModule {
+  setup: (this: void, cmd: CommandDef) => void | Promise<void>;
+}
+
+export interface AddCommandOptions {
+  name: string;
+  command: string;
+}
+
 // ----- Utils -----
 
 export type Awaitable<T> = () => T | Promise<T>;

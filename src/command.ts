@@ -1,6 +1,14 @@
-import type { CommandContext, CommandDef, ArgsDef } from "./types";
+import { resolve } from "pathe";
+import type {
+  CommandContext,
+  CommandDef,
+  ArgsDef,
+  Resolvable,
+  SubCommandsDef,
+} from "./types";
 import { CLIError, resolveValue } from "./_utils";
 import { parseArgs } from "./args";
+import { scanCommands } from "./scan";
 
 export function defineCommand<T extends ArgsDef = ArgsDef>(
   def: CommandDef<T>,
@@ -91,4 +99,45 @@ export async function resolveSubCommand<T extends ArgsDef = ArgsDef>(
     }
   }
   return [cmd, parent];
+}
+
+function removeDirPrefix(name: string, dir: string): string {
+  return name.replace(new RegExp(`^${dir}/`), "");
+}
+
+function removeExtension(name: string): string {
+  return name.replace(/\.ts$/, "");
+}
+
+/**
+ * Resolve all commands from a local directory.
+ */
+export async function resolveLocalCommands(
+  dir: string,
+): Promise<Resolvable<SubCommandsDef>> {
+  const localCommands = await scanCommands(dir);
+
+  return Object.fromEntries(
+    localCommands.map((command) => {
+      const name = removeExtension(removeDirPrefix(command, dir));
+
+      return [name, () => import(resolve(command)).then((r) => r.default)];
+    }),
+  );
+}
+
+/**
+ * Load all commands from a local directory into a command definition.
+ *
+ * This allows to create a CLI that automatically loads all commands from a directory to extend the CLI.
+ */
+export async function loadLocalCommands<T extends ArgsDef = ArgsDef>(
+  cmd: CommandDef<T>,
+  dir: string,
+) {
+  const localCommands = await resolveLocalCommands(dir);
+  cmd.subCommands = {
+    ...cmd.subCommands,
+    ...localCommands,
+  };
 }

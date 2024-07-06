@@ -11,6 +11,12 @@ importers:
       consola:
         specifier: ^3.2.3
         version: 3.2.3
+      globby:
+        specifier: ^14.0.2
+        version: 14.0.2
+      pathe:
+        specifier: ^1.1.2
+        version: 1.1.2
     devDependencies:
       '@types/node':
         specifier: ^20.12.7
@@ -48,6 +54,16 @@ importers:
       vitest:
         specifier: ^1.5.2
         version: 1.5.2(@types/node@20.12.7)
+
+  playground:
+    dependencies:
+      citty:
+        specifier: workspace:^
+        version: link:..
+    devDependencies:
+      jiti:
+        specifier: ^1.21.0
+        version: 1.21.0
 
 packages:
 
@@ -1436,8 +1452,8 @@ packages:
     resolution: {integrity: sha512-Y1zNGV+pzQdh7H39l9zgB4PJqjRNqydvdYCDG4HFXM4XuvSaQQlEc91IU1yALL8gUTDomgBAfz3XJdmUS+oo0w==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
-  globby@14.0.1:
-    resolution: {integrity: sha512-jOMLD2Z7MAhyG8aJpNOpmziMOP4rPLcc95oQPKXBazW82z+CEgPFBQvEpRUa1KeIMUJo4Wsm+q6uzO/Q/4BksQ==}
+  globby@14.0.2:
+    resolution: {integrity: sha512-s3Fq41ZVh7vbbe2PN3nrW7yC7U7MFVc5c98/iTl9c2GawNMKx/J648KQRW6WKkuU8GIbbh2IXfIRQjOZnXcTnw==}
     engines: {node: '>=18'}
 
   gopd@1.0.1:
@@ -3408,7 +3424,7 @@ snapshots:
       defu: 6.1.4
       destr: 2.0.3
       didyoumean2: 6.0.1
-      globby: 14.0.1
+      globby: 14.0.2
       magic-string: 0.30.9
       mdbox: 0.1.0
       mlly: 1.6.1
@@ -4359,7 +4375,7 @@ snapshots:
       merge2: 1.4.1
       slash: 4.0.0
 
-  globby@14.0.1:
+  globby@14.0.2:
     dependencies:
       '@sindresorhus/merge-streams': 2.3.0
       fast-glob: 3.3.2

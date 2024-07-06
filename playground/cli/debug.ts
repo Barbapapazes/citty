@@ -5,7 +5,7 @@ export default defineCommand({
   meta: {
     name: "debug",
     description: "Debug the project",
-    hidden: true
+    hidden: true,
   },
   args: {
     verbose: {
