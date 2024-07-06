@@ -1,6 +1,18 @@
 # Changelog
 
 
+## v0.1.8
+
+[compare changes](https://github.com/unjs/citty/compare/v0.1.7...v0.1.8)
+
+### 🚀 Enhancements
+
+- Add module ([658ef30](https://github.com/unjs/citty/commit/658ef30))
+
+### ❤️ Contributors
+
+- Barbapapazes <e.soubiran25@gmail.com>
+
 ## v0.1.7
 
 [compare changes](https://github.com/unjs/citty/compare/v0.1.6...v0.1.7)

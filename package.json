@@ -1,6 +1,6 @@
 {
   "name": "@barbapapazes/citty",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Elegant CLI Builder",
   "repository": "unjs/citty",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm run build",
     "play": "jiti ./playground/cli.ts",
-    "release": "pnpm test && changelogen --release --push && npm publish",
+    "release": "pnpm test && changelogen --release --push && npm publish --access public",
     "test": "pnpm lint && vitest run --coverage"
   },
   "dependencies": {
