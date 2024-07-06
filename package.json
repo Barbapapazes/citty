@@ -1,6 +1,6 @@
 {
-  "name": "citty",
-  "version": "0.1.6",
+  "name": "@barbapapazes/citty",
+  "version": "0.1.7",
   "description": "Elegant CLI Builder",
   "repository": "unjs/citty",
   "license": "MIT",
@@ -30,7 +30,9 @@
     "test": "pnpm lint && vitest run --coverage"
   },
   "dependencies": {
-    "consola": "^3.2.3"
+    "consola": "^3.2.3",
+    "globby": "^14.0.2",
+    "pathe": "^1.1.2"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",

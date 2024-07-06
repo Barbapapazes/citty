@@ -1,6 +1,36 @@
 # Changelog
 
 
+## v0.1.7
+
+[compare changes](https://github.com/unjs/citty/compare/v0.1.6...v0.1.7)
+
+### 🚀 Enhancements
+
+- Support `hidden` meta to hide command ([#111](https://github.com/unjs/citty/pull/111))
+- Support `enum` arg type ([#83](https://github.com/unjs/citty/pull/83))
+- Support `number` arg type ([#73](https://github.com/unjs/citty/pull/73))
+- Support `negativeDescription` for args ([#40](https://github.com/unjs/citty/pull/40))
+
+### 🏡 Chore
+
+- Use automd for badges ([b8371c4](https://github.com/unjs/citty/commit/b8371c4))
+- Apply automated lint fixes ([34c52a2](https://github.com/unjs/citty/commit/34c52a2))
+- Fix typos ([#143](https://github.com/unjs/citty/pull/143))
+
+### ✅ Tests
+
+- Add unit tests for internal utils ([#77](https://github.com/unjs/citty/pull/77))
+
+### ❤️ Contributors
+
+- Xjccc ([@xjccc](http://github.com/xjccc))
+- Zuixinwang ([@zuixinwang](http://github.com/zuixinwang))
+- K-Sato <satokatsuki0130@gmail.com>
+- Estéban ([@Barbapapazes](http://github.com/Barbapapazes))
+- Lsh ([@peterroe](http://github.com/peterroe))
+- Pooya Parsa ([@pi0](http://github.com/pi0))
+
 ## v0.1.6
 
 [compare changes](https://github.com/unjs/citty/compare/v0.1.5...v0.1.6)
